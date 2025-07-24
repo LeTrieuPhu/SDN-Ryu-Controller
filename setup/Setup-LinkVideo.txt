@@ -1,0 +1,67 @@
+1.Install mininet:
+- Install ubuntu 20.04: https://releases.ubuntu.com/focal/ubuntu-20.04.6-desktop-amd64.iso
+- terminal: sudo apt install mininet
+- Check version: mn --version
+
+2.Install Ryu:
+- install tool: sudo apt-get install python3-pip
+- install ryu: sudo pip3 install ryu
+- install more: pip3 install eventlet==0.30.2
+- check version: ryu-manager --version
+
+3.Scenario I:
+# run RYU
+- tab 1: sudo ryu-manager simple_switch_13_custom.py rest_router_FW_custom.py /home/mininet/Desktop/DoAn_QTM/flowmanager/flowmanager.py --observe-links --ofp-tcp-listen-port 6633 --wsapi-port 8085
+# run topology 1
+- tab 2: sudo python2 topo1.py
+# POST ip getway
+- tab 3: 
++ curl -X POST -d '{"address": "10.0.10.1/24"}' http://localhost:8085/router/0000000000000021
++ curl -X POST -d '{"address": "10.0.20.1/24"}' http://localhost:8085/router/0000000000000021
+#check topology
+- tab 2: pingall
+- web interface: http://localhost:8085/home/flows.html
+
+4.Scenario II:
+# run RYU
+- tab 1: sudo ryu-manager simple_switch_13_custom.py rest_router_FW_custom.py /home/mininet/Desktop/DoAn_QTM/flowmanager/flowmanager.py --observe-links --ofp-tcp-listen-port 6633 --wsapi-port 8085
+# run topology 2
+- tab 2: sudo python2 topo2.py
+# POST ip getway
+- tab 3: 
++ curl -X POST -d '{"address": "10.0.0.1/24"}' http://localhost:8085/router/0000000000000021
++ curl -X POST -d '{"address": "100.0.0.1/8"}' http://localhost:8085/router/0000000000000021
+#check topology
+- tab 2: pingall
+- web interface: http://localhost:8085/home/flows.html
+
+5.Scenario III:
+# run RYU
+- tab 1: sudo ryu-manager ryu.app.rest_router /home/mininet/Desktop/DoAn_QTM/flowmanager/flowmanager.py --observe-links --ofp-tcp-listen-port 6633 --wsapi-port 8085
+# run topology 3
+- tab 2: sudo python2 topo3.py
+
+# POST ip getway
+# s1
+curl -X POST -d '{"address": "192.168.1.1/24"}' http://localhost:8085/router/0000000000000001
+curl -X POST -d '{"address": "192.168.2.1/24"}' http://localhost:8085/router/0000000000000001
+curl -X POST -d '{"address": "10.0.10.1/24"}' http://localhost:8085/router/0000000000000001
+
+# s2
+curl -X POST -d '{"address": "192.168.1.1/24"}' http://localhost:8085/router/0000000000000002
+curl -X POST -d '{"address": "192.168.2.1/24"}' http://localhost:8085/router/0000000000000002
+curl -X POST -d '{"address": "10.0.10.2/24"}' http://localhost:8085/router/0000000000000002
+
+# defaut
+curl -X POST -d '{"gateway": "10.0.10.2"}' http://localhost:8085/router/0000000000000001
+curl -X POST -d '{"gateway": "10.0.10.1"}' http://localhost:8085/router/0000000000000002
+
+# check topology
+- tab 2: pingall
+- web interface: http://localhost:8085/home/flows.html
+
+# link video demo
+https://drive.google.com/file/d/1hCcG5Fd1-RQPaLl8S83lTr9xTTZm-i9P/view?usp=drive_link
+
+
+
