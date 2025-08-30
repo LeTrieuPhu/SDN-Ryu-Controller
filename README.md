@@ -29,6 +29,9 @@
 
 ## Demo
 1. Topo
+   - Topo 1: Sử dụng 2 Switch, 1 router và 4 host. Mỗi lớp mạng kết nối với 1 Switch
 ![Topo 1](https://github.com/LeTrieuPhu/SDN-Ryu-Controller/blob/main/picture/Topo1.png)
+   - Topo 2: Sử dụng 2 Switch, 1 router và 7 host. Mỗi lớp mạng kết nối với 1 Switch, có tích hợp firewall không cho lớp mạng 100.0.0.0/8 ping qua lớp mạng 10.0.0.0/24
 ![Topo 2](https://github.com/LeTrieuPhu/SDN-Ryu-Controller/blob/main/picture/Topo2.png)
+   - Topo 3: Sử dụng 2 Router và 4 host. Hai host khác lớp mạng kết nối với một router
 ![Topo 3](https://github.com/LeTrieuPhu/SDN-Ryu-Controller/blob/main/picture/Topo3.png)
