@@ -35,3 +35,5 @@
 ![Topo 2](https://github.com/LeTrieuPhu/SDN-Ryu-Controller/blob/main/picture/Topo2.png)
    - Topo 3: Sử dụng 2 Router và 4 host. Hai host khác lớp mạng kết nối với một router
 ![Topo 3](https://github.com/LeTrieuPhu/SDN-Ryu-Controller/blob/main/picture/Topo3.png)
+## link video demo
+https://drive.google.com/file/d/1hCcG5Fd1-RQPaLl8S83lTr9xTTZm-i9P/view?usp=drive_link
