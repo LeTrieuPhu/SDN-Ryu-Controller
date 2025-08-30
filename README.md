@@ -13,18 +13,18 @@
 ## Hướng dẫn sử dụng
 1. Clone dự án : git clone https://github.com/LeTrieuPhu/SDN-Ryu-Controller.git
 2. Khởi động Ryu Controller: sudo ryu-manager simple_switch_13_custom.py rest_router_FW_custom.py /home/mininet/Desktop/DoAn_QTM/flowmanager/flowmanager.py --observe-links --ofp-tcp-listen-port 6633 --wsapi-port 8085
-    -  simple_switch_13_custom.py: File cấu hình switch.
-    -  rest_router_FW_custom.py: File cấu hình router.
-    -  /home/mininet/Desktop/DoAn_QTM/flowmanager/flowmanager.py: Đường dẫn giao diện web flowmanager.
-    -  --observe-links: Khi bật tính năng này, Ryu Controller sẽ theo dõi trạng thái của các liên kết giữa các switch OpenFlow và tự động cập nhật khi có thay đổi về cấu trúc mạng.
-    -  --ofp-tcp-listen-port 6633: Tham số dùng để chỉ định cổng TCP mà Ryu Controller sẽ lắng nghe các kết nối từ các switch OpenFlow.
-    -  --wsapi-port 8085: Cung cấp WebSocket API qua cổng 8085 để kết nối từ các ứng dụng Flowmanager
+    -  **simple_switch_13_custom.py:** File cấu hình switch.
+    -  **rest_router_FW_custom.py:** File cấu hình router.
+    -  **/home/mininet/Desktop/DoAn_QTM/flowmanager/flowmanager.py:** Đường dẫn giao diện web flowmanager.
+    -  **--observe-links:** Khi bật tính năng này, Ryu Controller sẽ theo dõi trạng thái của các liên kết giữa các switch OpenFlow và tự động cập nhật khi có thay đổi về cấu trúc mạng.
+    -  **--ofp-tcp-listen-port 6633:** Tham số dùng để chỉ định cổng TCP mà Ryu Controller sẽ lắng nghe các kết nối từ các switch OpenFlow.
+    -  **--wsapi-port 8085:** Cung cấp WebSocket API qua cổng 8085 để kết nối từ các ứng dụng Flowmanager
 3. Khởi động mạng mininet: sudo python2 topoX.py
 4. Cấu hình router qua API:
     - curl -X POST -d '{"address": "10.0.10.1/24"}' http://localhost:8085/router/0000000000000021
     - curl -X POST -d '{"address": "10.0.20.1/24"}' http://localhost:8085/router/0000000000000021
-    - address: Địa chỉ IP gateway của 2 lớp mạng 
-    - 0000000000000021: Địa chỉ MAC của router được cấu hình trong topo
+    - **address:** Địa chỉ IP gateway của 2 lớp mạng 
+    - **0000000000000021:** Địa chỉ MAC của router được cấu hình trong topo
 5. Truy cập giao diện Web: http://localhost:8085/home/flows.html
 
 ## Demo
