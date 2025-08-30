@@ -28,3 +28,7 @@
 5. Truy cập giao diện Web: http://localhost:8085/home/flows.html
 
 ## Demo
+1. Topo
+![Topo 1](https://github.com/LeTrieuPhu/SDN-Ryu-Controller/blob/main/picture/Topo1.png)
+![Topo 2](https://github.com/LeTrieuPhu/SDN-Ryu-Controller/blob/main/picture/Topo2.png)
+![Topo 3](https://github.com/LeTrieuPhu/SDN-Ryu-Controller/blob/main/picture/Topo3.png)
